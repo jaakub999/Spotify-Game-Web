@@ -1,1 +1,161 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239C92AC' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+  linear-gradient(to right top, #236bb4, #2b2c31, #5f2180, #151314, #000000);
+}
+
+body, html {
+  font-family: 'Roboto Light', sans-serif;
+  color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+  font-weight: 600;
+  text-shadow: 3px 3px 3px #000000;
+}
+
+input, button {
+  font-size: 16px;
+}
+
+.app-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  border: 1px solid #ffffff;
+  color: #000000;
+}
+
+.btn-primary {
+  background-color: #fff;
+  color: #000000;
+  border-color: #f5f5f5;
+}
+
+.btn-primary:hover {
+  background-color: #000000;
+  color: #fff;
+  border-color: #000000;
+  cursor: pointer;
+}
+
+.btn-primary:active {
+  background-color: #202121;
+  border-color: #202121;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.home_button {
+  font-size: 24px;
+  padding: 12px 24px;
+  margin: 16px;
+}
+
+.form-group input {
+  background-color: #f5f5f5;
+}
+
+.form-group.links {
+  margin-top: 20px;
+}
+
+.form-group.links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.form-group.links a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.form-group.links span {
+  margin: 0 10px;
+  color: #999;
+  font-size: 14px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  margin-right: -22px;
+}
+
+.spotify-logo {
+  position: fixed;
+  bottom: -170px;
+  left: -170px;
+  z-index: -1;
+  background-image: url('src/assets/images/spotify_logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 600px;
+  height: 600px;
+}
+
+.spotify-albums {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  width: 500px;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: album-animation 10s infinite;
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+@keyframes album-animation {
+  0% {
+    background-image: url('assets/images/album1.jpg');
+  }
+  25% {
+    background-image: url('assets/images/album2.jpg');
+  }
+  50% {
+    background-image: url('assets/images/album3.jpg');
+  }
+  75% {
+    background-image: url('assets/images/album4.jpg');
+  }
+  100% {
+    background-image: url('assets/images/album1.jpg');
+  }
+}
