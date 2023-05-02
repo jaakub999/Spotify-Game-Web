@@ -21,10 +21,7 @@ export class AuthComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.form = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-    });
+    this.form = this.buildFormGroup();
   }
 
   onSignIn() {
@@ -47,5 +44,12 @@ export class AuthComponent implements OnInit {
 
   onPasswordChange() {
     this.router.navigateByUrl(RouteUrl.PASSWORD);
+  }
+
+  private buildFormGroup(): FormGroup {
+    return this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 }

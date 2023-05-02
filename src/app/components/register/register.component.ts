@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {UserService} from "../../services/user.service";
-import {RouteUrl} from "../../shared/route-url";
-import {Email} from "../../shared/email";
-import {EmailType} from "../../shared/email-type";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { UserService } from "../../services/user.service";
+import { RouteUrl } from "../../shared/route-url";
+import { EmailType } from "../../shared/email-type";
+import { catchError } from "rxjs";
 
 @Component({
   selector: 'app-register',
@@ -14,7 +14,9 @@ import {EmailType} from "../../shared/email-type";
 export class RegisterComponent implements OnInit {
 
   form!: FormGroup;
-  email!: Email;
+  emailAddress!: string;
+  showEmail = false;
+  emailType = EmailType.REGISTER;
 
   constructor(
     private fb: FormBuilder,
@@ -23,41 +25,43 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.form = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
-    });
-
-    this.email = {
-      address: '',
-      type: EmailType.REGISTER,
-      show: false
-    };
+    this.form = this.buildFormGroup();
   }
 
   onSubmit() {
-    const emailAddress = this.form.get('email')?.value;
-    const username = this.form.get('username')?.value;
-    const password = this.form.get('password')?.value;
-    const confirmPassword = this.form.get('confirmPassword')?.value;
+    const email = this.form.get('email');
+    const username = this.form.get('username');
+    const password = this.form.get('password');
+    const confirmPassword = this.form.get('confirmPassword');
 
-    if (emailAddress && username && password && confirmPassword) {
-      if (password !== confirmPassword) {
+    if (email && username && password && confirmPassword) {
+      if (password.value !== confirmPassword.value) {
         window.alert('Passwords do not match')
         return;
       } else {
-        this.userService.register(username, password, emailAddress).subscribe(
-          () => {
-            this.email.address = emailAddress;
-            this.email.show = true;
-          });
+        this.emailAddress = email.value;
+        this.userService.register(username.value, password.value, email.value).pipe(
+          catchError((error): any => {
+            window.alert('An unexpected error occurred');
+            return;
+          })
+        ).subscribe(() => {
+          this.showEmail = true;
+        });
       }
     }
   }
 
   cancel() {
     this.router.navigateByUrl(RouteUrl.AUTH)
+  }
+
+  private buildFormGroup(): FormGroup {
+    return this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]]
+    });
   }
 }

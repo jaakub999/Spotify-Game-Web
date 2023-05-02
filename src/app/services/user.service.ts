@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { User } from "../models/user";
+import { ChangePasswordRequest } from "../models/change-password-request";
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class UserService {
     return this.http.post<User>(`${this.baseUrl}/register`, user);
   }
 
-  resendVerificationEmail(email: string): Observable<string> {
-    return this.http.post<string>(`${this.baseUrl}/resend-verification-email?email=${email}`, {});
+  changePassword(request: ChangePasswordRequest): Observable<any> {
+    return this.http.post(`${this.baseUrl}/change-password`, request);
   }
 }
