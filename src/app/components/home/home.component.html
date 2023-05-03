@@ -1,4 +1,20 @@
-<div class="auth-form">
-  <button class="btn btn-primary home_button">Host Game</button>
-  <button class="btn btn-primary home_button">Join Game</button>
+<div class="app-form">
+  <div class="spotify-logo-home"></div>
+  <header>
+    <h1>Guess the Song</h1>
+  </header>
+  <h1 class="signature">by jaakub999</h1>
+  <div class="dropdown">
+    <button class="drop-btn">&nbsp;Account&nbsp;&nbsp;⮟</button>
+    <div class="dropdown-content">
+      <a class="dropdown-item" href="#">Options</a>
+      <a class="dropdown-item" href="/login" (click)="onLogOutClick()">Log out</a>
+    </div>
+  </div>
+  <div *ngIf="!showHost" class="app-form">
+    <button class="btn btn-primary home_button" (click)="hostGame()">Host Game</button>
+    <button class="btn btn-primary home_button">Join Game</button>
+    <button class="btn btn-primary home_button">History</button>
+  </div>
+  <app-host-game [show]="showHost" [session]="session"></app-host-game>
 </div>

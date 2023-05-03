@@ -18,13 +18,12 @@ export class UserService {
       username,
       password,
       email,
-      verified: false,
-      sessionId: 0
+      verified: false
     };
     return this.http.post<User>(`${this.baseUrl}/register`, user);
   }
 
-  changePassword(request: ChangePasswordRequest): Observable<any> {
-    return this.http.post(`${this.baseUrl}/change-password`, request);
+  changeForgottenPassword(request: ChangePasswordRequest): Observable<any> {
+    return this.http.post(`${this.baseUrl}/change-forgotten-password`, request);
   }
 }

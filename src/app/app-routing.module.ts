@@ -1,12 +1,12 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {RouteUrl} from "./shared/route-url";
-import {AuthGuard} from "./guard/auth.guard";
-import {AuthComponent} from "./components/auth/auth.component";
-import {RegisterComponent} from "./components/register/register.component";
-import {HomeComponent} from "./components/home/home.component";
-import {ChangePasswordComponent} from "./components/change-password/change-password.component";
-import {ForgotPasswordComponent} from "./components/forgot-password/forgot-password.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { RouteUrl } from "./shared/route-url";
+import { AuthGuard } from "./guards/auth.guard";
+import { AuthComponent } from "./components/auth/auth.component";
+import { RegisterComponent } from "./components/register/register.component";
+import { HomeComponent } from "./components/home/home.component";
+import { ChangePasswordComponent } from "./components/change-password/change-password.component";
+import { ForgotPasswordComponent } from "./components/forgot-password/forgot-password.component";
 
 const routes: Routes = [
   {
@@ -25,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: RouteUrl.REGISTER,
-    component: RegisterComponent,
+    component: RegisterComponent
   },
   {
     path: RouteUrl.PASSWORD,

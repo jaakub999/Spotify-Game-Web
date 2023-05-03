@@ -8,13 +8,20 @@ body, html {
   color: #ffffff;
 }
 
-h1, h2, h3, h4, h5, h6, label {
+h2, h3, h4, h5, h6, label {
   font-weight: 600;
   text-shadow: 3px 3px 3px #000000;
 }
 
 input, button {
   font-size: 16px;
+}
+
+header {
+  position: absolute;
+  z-index: -1;
+  top: 120px;
+  margin-left: 100px;
 }
 
 .app-form {
@@ -117,6 +124,57 @@ input, button {
   margin-right: -22px;
 }
 
+.dropdown {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.drop-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: auto;
+  margin-left: 80px;
+  z-index: 1;
+  background-color: #ffffff;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: #000000;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.code {
+  background-color: #ffffff;
+  border-radius: 5px;
+  color: #000000;
+  min-width: 200px;
+  text-align: center;
+}
+
 .spotify-logo {
   position: fixed;
   bottom: -170px;
@@ -127,6 +185,18 @@ input, button {
   background-size: contain;
   width: 600px;
   height: 600px;
+}
+
+.spotify-logo-home {
+  position: absolute;
+  top: 50px;
+  margin-right: 100px;
+  z-index: -1;
+  background-image: url('src/assets/images/spotify_logo_home.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 300px;
+  height: 300px;
 }
 
 .spotify-albums {
@@ -158,4 +228,15 @@ input, button {
   100% {
     background-image: url('assets/images/album1.jpg');
   }
+}
+
+.signature {
+  position: absolute;
+  top: 175px;
+  margin-right: 200px;
+  z-index: -1;
+  font-size: 0.8em;
+  font-family: cursive;
+  font-style: italic;
+  color: #ffffff;
 }

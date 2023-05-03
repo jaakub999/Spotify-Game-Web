@@ -11,6 +11,7 @@ import { EmailComponent } from './components/email/email.component';
 import { HomeComponent } from './components/home/home.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { HostGameComponent } from './components/home/host-game/host-game.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     EmailComponent,
     HomeComponent,
     ForgotPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    HostGameComponent
   ],
   imports: [
     BrowserModule,

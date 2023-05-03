@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { LoginResponse } from "../models/login-response";
+import { JWT_TOKEN_KEY } from "../shared/jwt-token-key";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,6 @@ import { LoginResponse } from "../models/login-response";
 export class AuthService {
 
   private readonly baseUrl = 'http://localhost:8080/api/login';
-  private readonly tokenKey = 'auth_token_key';
 
   constructor(private http: HttpClient) {}
 
@@ -22,16 +22,16 @@ export class AuthService {
   }
 
   logOut() {
-    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(JWT_TOKEN_KEY);
   }
 
   isLoggedIn(): boolean {
-    const token = localStorage.getItem(this.tokenKey);
+    const token = localStorage.getItem(JWT_TOKEN_KEY);
     return !this.isTokenExpired(token) && !!token;
   }
 
   setToken(token: string) {
-    localStorage.setItem(this.tokenKey, token);
+    localStorage.setItem(JWT_TOKEN_KEY, token);
   }
 
   private isTokenExpired(token: string | null): boolean {

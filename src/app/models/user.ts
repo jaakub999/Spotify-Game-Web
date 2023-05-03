@@ -3,5 +3,4 @@ export interface User {
   password: string;
   email: string;
   verified: boolean;
-  sessionId: number;
 }

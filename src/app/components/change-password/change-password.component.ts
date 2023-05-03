@@ -28,17 +28,17 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   onSubmit() {
-    const newPassword = this.form.get('password')?.value;
-    const confirmNewPassword= this.form.get('confirmPassword')?.value;
+    const newPassword = this.form.get('password');
+    const confirmNewPassword= this.form.get('confirmPassword');
 
     if (newPassword && confirmNewPassword) {
       const request = {
         token: this.token,
-        newPassword: newPassword,
-        confirmNewPassword: confirmNewPassword
+        newPassword: newPassword.value,
+        confirmNewPassword: confirmNewPassword.value
       }
 
-      this.userService.changePassword(request).subscribe(
+      this.userService.changeForgottenPassword(request).subscribe(
         () => {
           this.changed = true;
           setTimeout(() => {
