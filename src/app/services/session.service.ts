@@ -18,4 +18,8 @@ export class SessionService {
     const headers = new HttpHeaders().set('Authentication', token);
     return this.http.post<Session>(`${this.baseUrl}/create`, {}, { headers })
   }
+
+  getSession(code: string): Observable<Session> {
+    return this.http.get<Session>(`${this.baseUrl}/${code}`)
+  }
 }

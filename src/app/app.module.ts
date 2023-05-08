@@ -11,7 +11,9 @@ import { EmailComponent } from './components/email/email.component';
 import { HomeComponent } from './components/home/home.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
-import { HostGameComponent } from './components/home/host-game/host-game.component';
+import { HostComponent } from './components/home/host/host.component';
+import { PlayerTableComponent } from './components/home/player-table/player-table.component';
+import { SpotifySearchBarComponent } from './components/home/spotify-search-bar/spotify-search-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HostGameComponent } from './components/home/host-game/host-game.compone
     HomeComponent,
     ForgotPasswordComponent,
     ChangePasswordComponent,
-    HostGameComponent
+    HostComponent,
+    PlayerTableComponent,
+    SpotifySearchBarComponent
   ],
   imports: [
     BrowserModule,

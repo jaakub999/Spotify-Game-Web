@@ -1,0 +1,19 @@
+<section class="app-form" *ngIf="show">
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search for a playlist...">
+    <button (click)="search()">Search</button>
+  </div>
+  <div class="results-container">
+    <ul class="results-list" *ngIf="playlists.length > 0">
+      <div class="playlist-item">
+        <li *ngFor="let playlist of playlists" (click)="onItemClickEvent(playlist)">
+          <img [src]="playlist.images[0].url" alt="Playlist Image">
+          <span>{{ playlist.name }}</span>
+        </li>
+      </div>
+    </ul>
+    <ul *ngIf="playlists.length <= 0">
+      <span>{{ status }}</span>
+    </ul>
+  </div>
+</section>

@@ -24,12 +24,59 @@ header {
   margin-left: 100px;
 }
 
+table {
+  height: 35vh;
+  width: 290px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #222;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+th {
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+td {
+  vertical-align: middle;
+}
+
+tr {
+  justify-content: center;
+  align-items: center;
+  display: block;
+  margin-bottom: 16px;
+}
+
 .app-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+.container {
+  display: flex;
+}
+
+.component {
+  flex: 1;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.search-component {
+  position: absolute;
+  left: 250px;
+}
+
+.players-component {
+  position: absolute;
+  right: 250px;
 }
 
 .form-group {
@@ -175,6 +222,91 @@ header {
   text-align: center;
 }
 
+.results-container {
+  height: 30vh;
+  width: 290px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #222;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 2px;
+}
+
+.results-list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.results-list li {
+  padding: 5px;
+  margin: 5px 0;
+  background-color: #fff;
+  color: #222;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: flex-start;
+  width: 270px;
+}
+
+.results-list li:hover {
+  background-color: #dddddd;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #222;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  padding: 10px;
+  width: 290px;
+}
+
+.search-container input[type="text"] {
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-bottom: 2px solid #fff;
+  padding: 5px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.search-container button {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.playlist-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.playlist-item img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
 .spotify-logo {
   position: fixed;
   bottom: -170px;
@@ -239,4 +371,20 @@ header {
   font-family: cursive;
   font-style: italic;
   color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

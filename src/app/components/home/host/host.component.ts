@@ -3,10 +3,14 @@ import { Session } from "../../../models/session";
 
 @Component({
   selector: 'app-host-game',
-  templateUrl: './host-game.component.html'
+  templateUrl: './host.component.html'
 })
-export class HostGameComponent {
+export class HostComponent {
 
   @Input() show!: boolean;
   @Input() session!: Session;
+
+  start() {
+    
+  }
 }

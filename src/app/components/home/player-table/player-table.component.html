@@ -1,0 +1,14 @@
+<section class="app-form" *ngIf="show">
+  <table>
+    <thead>
+    <tr>
+      <th>Players</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let player of players">
+      <td>{{ player.username }}</td>
+    </tr>
+    </tbody>
+  </table>
+</section>

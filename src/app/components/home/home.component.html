@@ -16,5 +16,15 @@
     <button class="btn btn-primary home_button">Join Game</button>
     <button class="btn btn-primary home_button">History</button>
   </div>
-  <app-host-game [show]="showHost" [session]="session"></app-host-game>
+  <div class="container">
+    <div class="search-component">
+      <app-spotify-search-bar [show]="showHost" (event)="handleEvent($event)"></app-spotify-search-bar>
+    </div>
+    <div class="component">
+      <app-host-game [show]="showHost" [session]="session"></app-host-game>
+    </div>
+    <div class="players-component">
+      <app-player-table [show]="showHost" [players]="session.players"></app-player-table>
+    </div>
+  </div>
 </div>

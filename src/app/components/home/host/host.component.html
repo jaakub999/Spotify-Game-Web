@@ -1,0 +1,9 @@
+<section class="app-form" *ngIf="show">
+  <h2 style="text-align: center">Your Game Code:</h2>
+  <div class="code">
+    <h1>{{ session.code }}</h1>
+  </div>
+  <div style="margin-top: 10px">
+    <button type="button" class="btn btn-primary" (click)="start()">Start</button>
+  </div>
+</section>
