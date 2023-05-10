@@ -8,7 +8,7 @@ import { SpotifyPlaylist } from "../models/spotify-playlist";
 })
 export class SpotifyService {
 
-  private readonly baseUrl = 'http://localhost:8080/spotify';
+  private readonly baseUrl = 'http://localhost:8080/api/spotify';
 
   constructor(private http: HttpClient) {}
 

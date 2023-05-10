@@ -14,6 +14,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { HostComponent } from './components/home/host/host.component';
 import { PlayerTableComponent } from './components/home/player-table/player-table.component';
 import { SpotifySearchBarComponent } from './components/home/spotify-search-bar/spotify-search-bar.component';
+import { GameComponent } from './components/game/game.component';
+import { InsertCodeComponent } from './components/home/insert-code/insert-code.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { SpotifySearchBarComponent } from './components/home/spotify-search-bar/
     ChangePasswordComponent,
     HostComponent,
     PlayerTableComponent,
-    SpotifySearchBarComponent
+    SpotifySearchBarComponent,
+    GameComponent,
+    InsertCodeComponent
   ],
   imports: [
     BrowserModule,

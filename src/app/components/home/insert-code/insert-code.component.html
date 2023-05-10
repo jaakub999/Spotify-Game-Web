@@ -1,0 +1,12 @@
+<section *ngIf="show">
+  <form [formGroup]="form" (ngSubmit)="onJoinEvent()">
+    <h2>Insert Game Code</h2>
+    <div class="form-group">
+      <input type="text" id="code" formControlName="code" required>
+    </div>
+    <div class="button-container">
+      <button type="button" class="btn btn-primary" (click)="cancel()">Cancel</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Join</button>
+    </div>
+  </form>
+</section>

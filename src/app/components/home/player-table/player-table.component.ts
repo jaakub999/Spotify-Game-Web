@@ -7,6 +7,6 @@ import { User } from "../../../models/user";
 })
 export class PlayerTableComponent {
 
-  @Input() players!: User[];
+  @Input() players: User[] = [];
   @Input() show!: boolean;
 }

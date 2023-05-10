@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Session } from "../../../models/session";
+import { SpotifyPlaylist } from "../../../models/spotify-playlist";
+import { SpotifyService } from "../../../services/spotify.service";
+import {SessionService} from "../../../services/session.service";
 
 @Component({
   selector: 'app-host-game',
@@ -8,9 +10,16 @@ import { Session } from "../../../models/session";
 export class HostComponent {
 
   @Input() show!: boolean;
-  @Input() session!: Session;
+  @Input() code!: string;
+  @Input() playlist!: SpotifyPlaylist;
+
+  constructor(
+    private spotifyService: SpotifyService,
+    private sessionService: SessionService
+  ) {}
+
 
   start() {
-    
+
   }
 }

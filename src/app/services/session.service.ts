@@ -19,7 +19,9 @@ export class SessionService {
     return this.http.post<Session>(`${this.baseUrl}/create`, {}, { headers })
   }
 
-  getSession(code: string): Observable<Session> {
-    return this.http.get<Session>(`${this.baseUrl}/${code}`)
+  joinSession(code: string): Observable<any> {
+    const token = localStorage.getItem(JWT_TOKEN_KEY)!;
+    const headers = new HttpHeaders().set('Authentication', token);
+    return this.http.post(`${this.baseUrl}/join?code=${code}`, {}, { headers });
   }
 }

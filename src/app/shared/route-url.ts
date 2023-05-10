@@ -3,7 +3,8 @@ export enum RouteUrl {
   AUTH = 'login',
   REGISTER = 'register',
   PASSWORD = 'password',
-  PASSWORD_TOKEN = 'password/:token'
+  PASSWORD_TOKEN = 'password/:token',
+  GAME = 'game/:code'
 }
 
 export namespace RouteUrl {
@@ -19,6 +20,8 @@ export namespace RouteUrl {
         return RouteUrl.PASSWORD;
       case 'password/:email':
         return RouteUrl.PASSWORD_TOKEN;
+      case 'game/:code':
+        return RouteUrl.GAME;
     }
 
     return RouteUrl.HOME;

@@ -11,17 +11,20 @@
       <a class="dropdown-item" href="/login" (click)="onLogOutClick()">Log out</a>
     </div>
   </div>
-  <div *ngIf="!showHost" class="app-form">
+  <div *ngIf="!showHost && !showCode && !showLobby" class="app-form">
     <button class="btn btn-primary home_button" (click)="hostGame()">Host Game</button>
     <button class="btn btn-primary home_button">Join Game</button>
     <button class="btn btn-primary home_button">History</button>
   </div>
+  <div>
+    <app-insert-code [show]="showCode" (event)="joinGame($event)"></app-insert-code>
+  </div>
   <div class="container">
     <div class="search-component">
-      <app-spotify-search-bar [show]="showHost" (event)="handleEvent($event)"></app-spotify-search-bar>
+      <app-spotify-search-bar [show]="showHost" (event)="choosePlaylist($event)"></app-spotify-search-bar>
     </div>
     <div class="component">
-      <app-host-game [show]="showHost" [session]="session"></app-host-game>
+      <app-host-game [show]="showHost" [code]="session.code" [playlist]="chosenPlaylist"></app-host-game>
     </div>
     <div class="players-component">
       <app-player-table [show]="showHost" [players]="session.players"></app-player-table>

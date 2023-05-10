@@ -1,9 +1,17 @@
 <section class="app-form" *ngIf="show">
   <h2 style="text-align: center">Your Game Code:</h2>
   <div class="code">
-    <h1>{{ session.code }}</h1>
+    <h1>{{ code }}</h1>
   </div>
-  <div style="margin-top: 10px">
-    <button type="button" class="btn btn-primary" (click)="start()">Start</button>
+  <div style="margin-top: 20px;" *ngIf="playlist">
+    <img style="width: 128px; height: 128px; border-radius: 20px" [src]="playlist.images[0].url">
+  </div>
+  <div *ngIf="playlist">
+    <div style="margin-top: 10px; display: flex; flex-direction: column; align-items: center;">
+      <span style="font-weight: bold">{{ playlist.name }}</span>
+      <div style="margin-top: 15px">
+        <button type="button" class="btn btn-primary" (click)="start()">Start</button>
+      </div>
+    </div>
   </div>
 </section>
