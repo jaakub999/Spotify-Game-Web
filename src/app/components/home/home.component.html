@@ -1,33 +1,11 @@
 <div class="app-form">
-  <div class="spotify-logo-home"></div>
-  <header>
-    <h1>Guess the Song</h1>
-  </header>
-  <h1 class="signature">by jaakub999</h1>
-  <div class="dropdown">
-    <button class="drop-btn">&nbsp;Account&nbsp;&nbsp;⮟</button>
-    <div class="dropdown-content">
-      <a class="dropdown-item" href="#">Options</a>
-      <a class="dropdown-item" href="/login" (click)="onLogOutClick()">Log out</a>
-    </div>
+  <app-menu></app-menu>
+  <div class="app-form" *ngIf="!showCode">
+    <button class="btn btn-primary btn-home" (click)="hostGame()">Host Game</button>
+    <button class="btn btn-primary btn-home" (click)="insertCode()">Join Game</button>
+    <button class="btn btn-primary btn-home">History</button>
   </div>
-  <div *ngIf="!showHost && !showCode && !showLobby" class="app-form">
-    <button class="btn btn-primary home_button" (click)="hostGame()">Host Game</button>
-    <button class="btn btn-primary home_button">Join Game</button>
-    <button class="btn btn-primary home_button">History</button>
-  </div>
-  <div>
-    <app-insert-code [show]="showCode" (event)="joinGame($event)"></app-insert-code>
-  </div>
-  <div class="container">
-    <div class="search-component">
-      <app-spotify-search-bar [show]="showHost" (event)="choosePlaylist($event)"></app-spotify-search-bar>
-    </div>
-    <div class="component">
-      <app-host-game [show]="showHost" [code]="session.code" [playlist]="chosenPlaylist"></app-host-game>
-    </div>
-    <div class="players-component">
-      <app-player-table [show]="showHost" [players]="session.players"></app-player-table>
-    </div>
+  <div *ngIf="showCode">
+    <app-insert-code (event)="joinGame($event)"></app-insert-code>
   </div>
 </div>

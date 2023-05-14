@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { SpotifyPlaylist } from "../models/spotify-playlist";
+import { API_BASE_URL } from "../config/constants";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpotifyService {
 
-  private readonly baseUrl = 'http://localhost:8080/api/spotify';
+  private readonly baseUrl = `${API_BASE_URL}/spotify`;
 
   constructor(private http: HttpClient) {}
 

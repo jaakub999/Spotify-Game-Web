@@ -11,11 +11,14 @@ import { EmailComponent } from './components/email/email.component';
 import { HomeComponent } from './components/home/home.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
-import { HostComponent } from './components/home/host/host.component';
-import { PlayerTableComponent } from './components/home/player-table/player-table.component';
-import { SpotifySearchBarComponent } from './components/home/spotify-search-bar/spotify-search-bar.component';
+import { HostComponent } from './components/lobby/host/host.component';
+import { PlayerTableComponent } from './components/lobby/player-table/player-table.component';
+import { SpotifySearchBarComponent } from './components/lobby/spotify-search-bar/spotify-search-bar.component';
 import { GameComponent } from './components/game/game.component';
 import { InsertCodeComponent } from './components/home/insert-code/insert-code.component';
+import { LobbyComponent } from './components/lobby/lobby.component';
+import { MenuComponent } from './components/menu/menu.component';
+import {WebSocketService} from "./services/web-socket.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { InsertCodeComponent } from './components/home/insert-code/insert-code.c
     PlayerTableComponent,
     SpotifySearchBarComponent,
     GameComponent,
-    InsertCodeComponent
+    InsertCodeComponent,
+    LobbyComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,7 @@ import { InsertCodeComponent } from './components/home/insert-code/insert-code.c
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [WebSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

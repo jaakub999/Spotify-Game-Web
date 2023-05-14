@@ -2,21 +2,21 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { LoginResponse } from "../models/login-response";
-import { JWT_TOKEN_KEY } from "../shared/jwt-token-key";
+import { API_BASE_URL, JWT_TOKEN_KEY } from "../config/constants";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private readonly baseUrl = 'http://localhost:8080/api/login';
+  private readonly baseUrl = `${API_BASE_URL}/login`;
 
   constructor(private http: HttpClient) {}
 
   logIn(username: string, password: string): Observable<LoginResponse> {
     const request = {
-      username: username,
-      password: password
+      username,
+      password
     };
     return this.http.post<LoginResponse>(this.baseUrl, request);
   }

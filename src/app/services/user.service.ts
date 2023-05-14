@@ -3,13 +3,14 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { User } from "../models/user";
 import { ChangePasswordRequest } from "../models/change-password-request";
+import { API_BASE_URL } from "../config/constants";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private readonly baseUrl = 'http://localhost:8080/api/users';
+  private readonly baseUrl = `${API_BASE_URL}/users`;
 
   constructor(private http: HttpClient) {}
 

@@ -2,7 +2,8 @@ import { User } from "./user";
 
 export interface Session {
   host: string;
-  started: boolean
   code: string;
+  playlistId: string;
+  tracks: number;
   players: User[];
 }

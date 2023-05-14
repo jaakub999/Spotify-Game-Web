@@ -1,9 +1,11 @@
-<div class="app-form">
+<section class="app-form" style="height: auto">
   <div class="spotify-logo-home"></div>
   <header>
     <h1>Guess the Song</h1>
   </header>
   <h1 class="signature">by jaakub999</h1>
+</section>
+<div class="app-form">
   <form [formGroup]="form" (ngSubmit)="onSignIn()">
     <h2>Log In</h2>
     <div class="form-group">
@@ -14,7 +16,7 @@
       <label for="password">Password</label>
       <input type="password" id="password" formControlName="password" required>
     </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Sign in</button>
     <div class="form-group links">
       <a (click)="onPasswordChange()">Forgot password?</a>
       <span>|</span>

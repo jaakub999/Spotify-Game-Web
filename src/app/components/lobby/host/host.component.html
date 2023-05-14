@@ -1,5 +1,5 @@
-<section class="app-form" *ngIf="show">
-  <h2 style="text-align: center">Your Game Code:</h2>
+<section class="app-form">
+  <h3 style="text-align: center">Your Game Code:</h3>
   <div class="code">
     <h1>{{ code }}</h1>
   </div>
@@ -9,7 +9,15 @@
   <div *ngIf="playlist">
     <div style="margin-top: 10px; display: flex; flex-direction: column; align-items: center;">
       <span style="font-weight: bold">{{ playlist.name }}</span>
-      <div style="margin-top: 15px">
+      <div style="margin-top: 20px">
+        <label>Number of tracks:</label>
+      </div>
+      <div style="margin-top: 10px">
+        <button type="button" class="btn val-btn" (click)="decreaseValue()">-</button>
+        <label style="margin-right: 10px; margin-left: 10px;">{{ selectedValue }}</label>
+        <button type="button" class="btn val-btn" (click)="increaseValue()">+</button>
+      </div>
+      <div style="margin-top: 17px">
         <button type="button" class="btn btn-primary" (click)="start()">Start</button>
       </div>
     </div>

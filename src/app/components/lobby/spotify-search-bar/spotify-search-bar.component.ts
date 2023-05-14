@@ -8,7 +8,6 @@ import { SpotifyService } from "../../../services/spotify.service";
 })
 export class SpotifySearchBarComponent {
 
-  @Input() show!: boolean;
   @Output() event: EventEmitter<SpotifyPlaylist> = new EventEmitter<SpotifyPlaylist>();
 
   searchQuery: string = '';

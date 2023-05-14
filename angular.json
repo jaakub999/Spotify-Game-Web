@@ -79,7 +79,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "./window-global-fix.ts"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [

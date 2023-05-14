@@ -8,6 +8,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { ChangePasswordComponent } from "./components/change-password/change-password.component";
 import { ForgotPasswordComponent } from "./components/forgot-password/forgot-password.component";
 import { GameComponent } from "./components/game/game.component";
+import { LobbyComponent } from "./components/lobby/lobby.component";
 
 const routes: Routes = [
   {
@@ -37,7 +38,12 @@ const routes: Routes = [
     component: ChangePasswordComponent
   },
   {
-    path: RouteUrl.GAME,
+    path: RouteUrl.LOBBY + '/:code',
+    component: LobbyComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: RouteUrl.GAME + '/:code',
     component: GameComponent,
     canActivate: [AuthGuard]
   }

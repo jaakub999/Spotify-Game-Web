@@ -1,4 +1,5 @@
 export interface SpotifyTrack {
   name: string;
-  uri: string;
+  artist: string;
+  album: string;
 }

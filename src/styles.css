@@ -20,7 +20,7 @@ input, button {
 header {
   position: absolute;
   z-index: -1;
-  top: 120px;
+  top: 100px;
   margin-left: 100px;
 }
 
@@ -133,10 +133,16 @@ tr {
   cursor: not-allowed;
 }
 
-.home_button {
+.btn-home {
   font-size: 24px;
   padding: 12px 24px;
   margin: 16px;
+}
+
+.btn-back {
+  position: absolute;
+  bottom: 5vh;
+  left: 5vh;
 }
 
 .form-group input {
@@ -187,6 +193,16 @@ tr {
   font-weight: bold;
 }
 
+.val-btn {
+  color: white;
+  text-shadow: 3px 3px 3px #000000;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -195,7 +211,7 @@ tr {
   z-index: 1;
   background-color: #ffffff;
   min-width: 120px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .dropdown:hover .dropdown-content {
@@ -321,7 +337,7 @@ tr {
 
 .spotify-logo-home {
   position: absolute;
-  top: 50px;
+  top: 40px;
   margin-right: 100px;
   z-index: -1;
   background-image: url('src/assets/images/spotify_logo_home.png');
@@ -364,7 +380,7 @@ tr {
 
 .signature {
   position: absolute;
-  top: 175px;
+  top: 150px;
   margin-right: 200px;
   z-index: -1;
   font-size: 0.8em;

@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
+import { API_BASE_URL } from "../config/constants";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmailService {
 
-  private readonly baseUrl = 'http://localhost:8080/api/email';
+  private readonly baseUrl = `${API_BASE_URL}/email`;
 
   constructor(private http: HttpClient) {}
 
