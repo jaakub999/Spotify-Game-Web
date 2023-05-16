@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Session } from "../models/session";
-import { API_BASE_URL, JWT_TOKEN_KEY } from "../config/constants";
-import {SessionResponse} from "../models/session-response";
+import { API_BASE_URL, JWT_TOKEN_KEY } from "../config/constants.config";
+import { SessionResponse } from "../models/session-response";
+import { TrackGroup } from "../models/track-group";
 
 @Injectable({
   providedIn: 'root'
@@ -26,22 +27,22 @@ export class SessionService {
     return this.http.get<SessionResponse>(`${this.baseUrl}/${code}`, { headers });
   }
 
+  getSessionTracks(code: string): Observable<TrackGroup[]> {
+    return this.http.get<TrackGroup[]>(`${this.baseUrl}/${code}/tracks`);
+  }
+
   joinSession(code: string): Observable<any> {
     const token = localStorage.getItem(JWT_TOKEN_KEY)!;
     const headers = new HttpHeaders().set('Authentication', token);
     return this.http.post(`${this.baseUrl}/${code}/join`, {},{ headers });
   }
 
-  updateSessionData(session: string, playlist: string, tracks: number): Observable<any> {
+  updateSessionData(sessionCode: string, playlistId: string, tracksNumber: number): Observable<any> {
     const request = {
-      session,
-      playlist,
-      tracks
+      sessionCode,
+      playlistId,
+      tracksNumber
     };
     return this.http.post(`${this.baseUrl}/update`, request);
-  }
-
-  deleteSession(code: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/delete?code=${code}`);
   }
 }

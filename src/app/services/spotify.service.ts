@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { SpotifyPlaylist } from "../models/spotify-playlist";
-import { API_BASE_URL } from "../config/constants";
+import { API_BASE_URL } from "../config/constants.config";
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +15,9 @@ export class SpotifyService {
 
   searchPlaylists(query: string): Observable<SpotifyPlaylist[]> {
     return this.http.get<SpotifyPlaylist[]>(`${this.baseUrl}/playlists?q=${query}`);
+  }
+
+  getAccessToken(): Observable<string> {
+    return this.http.get<string>(`${this.baseUrl}/playlists/token`);
   }
 }

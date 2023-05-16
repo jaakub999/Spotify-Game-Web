@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { WS_BASE_URL } from "../config/constants";
+import { WS_BASE_URL } from "../config/constants.config";
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 
@@ -13,6 +13,17 @@ export class WebSocketService {
 
   private connecting: boolean = false;
   private topicQueue: any[] = [];
+
+  connect() {
+    this.connecting = true;
+    this.stompClient$.connect();
+    this.connecting = false;
+  }
+
+  disconnect() {
+    this.connecting = false;
+    this.stompClient$.disconnect();
+  }
 
   subscribe(topic: string, callback: any) {
     if (this.connecting) {
@@ -43,19 +54,19 @@ export class WebSocketService {
     });
   }
 
-  unsubscribe() {
+  unsubscribe(topic: string) {
     const connected: boolean = this.stompClient$.connected;
     if (connected) {
-      this.stompClient$.disconnect();
-      this.connecting = false;
-      this.topicQueue = [];
+      this.stompClient$.unsubscribe(topic);
+    } else {
+      this.topicQueue = this.topicQueue.filter(item => item.topic !== topic);
     }
   }
 
   private subscribeToTopic(topic: string, callback: any) {
     this.stompClient$.subscribe(topic,
       (): any => {
-      callback();
-    });
+        callback();
+      });
   }
 }

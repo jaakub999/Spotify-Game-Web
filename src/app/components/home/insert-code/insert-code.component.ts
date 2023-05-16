@@ -15,7 +15,7 @@ export class InsertCodeComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      code: ['', [Validators.required, Validators.pattern(/^\w{5}$/)]]
+      code: ['', [Validators.required, Validators.pattern(/^\w{6}$/)]]
     });
   }
 

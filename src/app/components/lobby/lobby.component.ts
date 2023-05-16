@@ -29,50 +29,55 @@ export class LobbyComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.code = this.route.snapshot.paramMap.get('code')!;
     this.refreshPlayerTable();
-    this.subscribeToSessionUpdates();
+    this.stompSubscribe();
   }
 
   ngOnDestroy() {
-    this.webSocketService.unsubscribe();
+    this.stompUnsubscribe();
   }
 
   choosePlaylist(event: SpotifyPlaylist) {
     this.chosenPlaylist = event;
   }
 
-  startGame(event: number) {
-    this.sessionService.updateSessionData(
-      this.session.code,
-      this.chosenPlaylist.id,
-      event
-    ).subscribe();
-  }
-
   goBack() {
     this.router.navigateByUrl(RouteUrl.HOME);
   }
 
-  private subscribeToSessionUpdates() {
+  getNumberOfTracksAndStart(event: number) {
+    this.startGame(event);
+  }
+
+  private stompSubscribe() {
     this.webSocketService.subscribe('/topic/session/join/' + this.code,
       () => {
-        this.refreshPlayerTable();
-      });
-    this.webSocketService.subscribe('/topic/session/update/' + this.code,
+      this.refreshPlayerTable();
+    });
+    this.webSocketService.subscribe('/topic/session/start/' + this.code,
       () => {
+      this.router.navigate([`${RouteUrl.GAME}/${this.code}`])
+    });
+  }
 
-      });
-    this.webSocketService.subscribe('/topic/session/delete/' + this.code,
-      () => {
-      window.alert("Session is no longer available");
-      this.goBack();
-      });
+  private stompUnsubscribe() {
+    this.webSocketService.unsubscribe('/topic/session/join/' + this.code);
+    this.webSocketService.unsubscribe('/topic/session/start/' + this.code);
+    //this.webSocketService.unsubscribe('/topic/session/delete/' + this.code);
   }
 
   private refreshPlayerTable() {
     this.sessionService.getSession(this.code).subscribe(
-      (data: SessionResponse) => {
-        this.session = data.session;
-        this.isHost = this.session.host === data.username;
+      (response: SessionResponse) => {
+        this.session = response.session;
+        this.isHost = this.session.host === response.username;
     });
+  }
+
+  private startGame(numberOfTracks: number) {
+    this.sessionService.updateSessionData(
+      this.session.code,
+      this.chosenPlaylist.id,
+      numberOfTracks
+    ).subscribe(() => {});
   }
 }

@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { User } from "../models/user";
 import { ChangePasswordRequest } from "../models/change-password-request";
-import { API_BASE_URL } from "../config/constants";
+import { API_BASE_URL } from "../config/constants.config";
 
 @Injectable({
   providedIn: 'root'

@@ -5,11 +5,14 @@
       <app-spotify-search-bar (event)="choosePlaylist($event)"></app-spotify-search-bar>
     </div>
     <div class="component">
-      <app-host-game [code]="session.code" [playlist]="chosenPlaylist" (event)="startGame($event)"></app-host-game>
+      <app-host-game [code]="session.code" [playlist]="chosenPlaylist" (event)="getNumberOfTracksAndStart($event)"></app-host-game>
     </div>
     <div class="players-component">
       <app-player-table [players]="session.players"></app-player-table>
     </div>
+  </div>
+  <div class="players-component" *ngIf="!isHost">
+    <app-player-table [players]="session.players"></app-player-table>
   </div>
   <div>
     <button class="btn btn-primary btn-back" (click)="goBack()">⇦ Back</button>

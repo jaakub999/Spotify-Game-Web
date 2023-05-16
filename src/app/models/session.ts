@@ -1,9 +1,12 @@
 import { User } from "./user";
+import { TrackGroup } from "./track-group";
 
 export interface Session {
   host: string;
   code: string;
   playlistId: string;
-  tracks: number;
+  active: boolean;
+  date: string;
   players: User[];
+  trackGroups: TrackGroup[];
 }

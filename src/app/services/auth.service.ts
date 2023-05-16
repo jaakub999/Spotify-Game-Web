@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { LoginResponse } from "../models/login-response";
-import { API_BASE_URL, JWT_TOKEN_KEY } from "../config/constants";
+import { API_BASE_URL, JWT_TOKEN_KEY } from "../config/constants.config";
 
 @Injectable({
   providedIn: 'root'
