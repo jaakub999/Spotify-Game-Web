@@ -27,8 +27,8 @@ export class SessionService {
     return this.http.get<SessionResponse>(`${this.baseUrl}/${code}`, { headers });
   }
 
-  getSessionTracks(code: string): Observable<TrackGroup[]> {
-    return this.http.get<TrackGroup[]>(`${this.baseUrl}/${code}/tracks`);
+  getSessionTracks(code: string): Observable<string[]> {
+    return this.http.get<string[]>(`${this.baseUrl}/${code}/tracks`);
   }
 
   joinSession(code: string): Observable<any> {

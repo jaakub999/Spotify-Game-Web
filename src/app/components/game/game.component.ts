@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
 import { SessionService } from "../../services/session.service";
-import { TrackGroup } from "../../models/track-group";
+import { ActivatedRoute, Router } from "@angular/router";
+import { RouteUrl } from "../../shared/route-url";
 
 @Component({
   selector: 'app-game',
@@ -10,29 +10,27 @@ import { TrackGroup } from "../../models/track-group";
 })
 export class GameComponent implements OnInit {
 
-  spotifyPlayer!: Spotify.Player
-  trackGroups!: TrackGroup[];
+  tracks!: string[];
 
   constructor(
-    private sessionService: SessionService,
-    private route: ActivatedRoute
+    private router: Router,
+    private route: ActivatedRoute,
+    private sessionService: SessionService
   ) {}
 
   ngOnInit() {
-    this.getTrackGroups();
-    const playerInit: Spotify.PlayerInit = {
-      name: 'Spotify Player',
-      getOAuthToken(cb: (token: string) => void) {
+    this.getTracks();
+  }
 
-      }
+  goBack() {
+    this.router.navigateByUrl(RouteUrl.HOME);
+  }
+
+    private getTracks() {
+      const code = this.route.snapshot.paramMap.get('code')!;
+      this.sessionService.getSessionTracks(code).subscribe(
+        (data: string[]) => {
+          this.tracks = data;
+        });
     }
-  }
-
-  private getTrackGroups() {
-    const code = this.route.snapshot.paramMap.get('code')!;
-    this.sessionService.getSessionTracks(code).subscribe(
-      (data: TrackGroup[]) => {
-        this.trackGroups = data;
-      });
-  }
 }

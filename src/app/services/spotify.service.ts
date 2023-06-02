@@ -18,6 +18,6 @@ export class SpotifyService {
   }
 
   getAccessToken(): Observable<string> {
-    return this.http.get<string>(`${this.baseUrl}/playlists/token`);
+    return this.http.get<string>(`${this.baseUrl}/token`);
   }
 }

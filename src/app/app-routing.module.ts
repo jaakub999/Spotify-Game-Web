@@ -7,8 +7,8 @@ import { RegisterComponent } from "./components/register/register.component";
 import { HomeComponent } from "./components/home/home.component";
 import { ChangePasswordComponent } from "./components/change-password/change-password.component";
 import { ForgotPasswordComponent } from "./components/forgot-password/forgot-password.component";
-import { GameComponent } from "./components/game/game.component";
 import { LobbyComponent } from "./components/lobby/lobby.component";
+import { GameComponent } from "./components/game/game.component";
 
 const routes: Routes = [
   {

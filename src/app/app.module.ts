@@ -14,11 +14,11 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { HostComponent } from './components/lobby/host/host.component';
 import { PlayerTableComponent } from './components/lobby/player-table/player-table.component';
 import { SpotifySearchBarComponent } from './components/lobby/spotify-search-bar/spotify-search-bar.component';
-import { GameComponent } from './components/game/game.component';
 import { InsertCodeComponent } from './components/home/insert-code/insert-code.component';
 import { LobbyComponent } from './components/lobby/lobby.component';
 import { MenuComponent } from './components/menu/menu.component';
-import {WebSocketService} from "./services/web-socket.service";
+import { GameComponent } from "./components/game/game.component";
+import { WebSocketService } from "./services/web-socket.service";
 
 @NgModule({
   declarations: [
